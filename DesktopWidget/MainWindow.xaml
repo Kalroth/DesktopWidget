@@ -1,0 +1,45 @@
+﻿<Window x:Name="DesktopWidget" x:Class="DesktopWidget.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DesktopWidget"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="Auto" Width="175"
+        WindowStyle="None" Background="Black"
+        SizeToContent="Height" AllowsTransparency="True"
+        ShowInTaskbar="False"
+        ResizeMode="CanResizeWithGrip"
+        MouseDown="DesktopWidget_MouseDown"
+        SizeChanged="DesktopWidget_SizeChanged"
+        LocationChanged="DesktopWidget_LocationChanged"
+        DataContext="{StaticResource ResourceKey=MainViewModel}">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+    <Border BorderThickness="1" BorderBrush="White" CornerRadius="3">
+        <StackPanel Height="Auto" Margin="2">
+            <TextBlock Text="{Binding Values[DateTime], StringFormat={}{0:T}}" FontWeight="Bold" FontSize="20"></TextBlock>
+            <TextBlock Text="{Binding Values[DateTime], StringFormat={}{0:d}}" FontSize="12"></TextBlock>
+            <TextBlock Foreground="LightGoldenrodYellow" HorizontalAlignment="Center">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}{0} of {1}">
+                        <Binding Path="Values[MemoryUsed]"></Binding>
+                        <Binding Path="Values[MemoryTotal]"></Binding>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
+            <DockPanel HorizontalAlignment="Center">
+                <TextBlock Text="{Binding Values[NetworkRecieved], StringFormat={}{0}}" Foreground="LightGreen"/>
+                <TextBlock Text=" / " />
+                <TextBlock Text="{Binding Values[NetworkSent], StringFormat={}{0}}" Foreground="LightSalmon"/>
+            </DockPanel>
+        </StackPanel>
+    </Border>
+</Window>
