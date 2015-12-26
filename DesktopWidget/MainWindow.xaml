@@ -27,6 +27,14 @@
         <StackPanel Height="Auto" Margin="2">
             <TextBlock Text="{Binding Values[DateTime], StringFormat={}{0:T}}" FontWeight="Bold" FontSize="20"></TextBlock>
             <TextBlock Text="{Binding Values[DateTime], StringFormat={}{0:d}}" FontSize="12"></TextBlock>
+            <TextBlock FontSize="10">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{} {0} - Week {1}">
+                        <Binding Path="Values[Day]"></Binding>
+                        <Binding Path="Values[Week]"></Binding>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
             <TextBlock Foreground="LightGoldenrodYellow" HorizontalAlignment="Center">
                 <TextBlock.Text>
                     <MultiBinding StringFormat="{}{0} of {1}">

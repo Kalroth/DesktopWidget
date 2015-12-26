@@ -61,12 +61,14 @@
     <Compile Include="Extensions\Formatting.cs" />
     <Compile Include="Helpers\MemoryHelper.cs" />
     <Compile Include="Widgets\DateTimeWidget.cs" />
+    <Compile Include="Widgets\DayWidget.cs" />
     <Compile Include="Widgets\MemoryFreeWidget.cs" />
     <Compile Include="Widgets\MemoryTotalWidget.cs" />
     <Compile Include="Widgets\MemoryUsedWidget.cs" />
     <Compile Include="Widgets\NetworkRecievedWidget.cs" />
     <Compile Include="Widgets\NetworkSentWidget.cs" />
     <Compile Include="Interfaces\WidgetValue.cs" />
+    <Compile Include="Widgets\WeekWidget.cs" />
     <Compile Include="WidgetValueList.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
